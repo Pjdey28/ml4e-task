@@ -2,6 +2,7 @@
 import pandas as pd
 from sklearn.neighbors import NearestNeighbors
 from sklearn.preprocessing import StandardScaler
+import streamlit as st
 
 class SongRecommender:
     def __init__(self, n_neighbors=5):
@@ -35,10 +36,6 @@ class SongRecommender:
         return self.df.iloc[recs][["track_name", "artist_name", "genre"]]
 
      
-
-import streamlit as st
-from recommender import SongRecommender
-
 df = pd.read_csv("./tcc_ceds_music.csv")
 
 feature_cols = ["valence", "energy", "danceability", "acousticness", "instrumentalness"]
